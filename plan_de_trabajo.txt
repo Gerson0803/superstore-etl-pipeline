@@ -1,0 +1,60 @@
+Plan de trabajo ETL para ProyectoSuperStoreDataAnalytics
+
+1. Configuración inicial del entorno
+- Crear y activar virtualenv (.venv)
+- Instalar dependencias: pip install -r requirements.txt
+
+2. Preparación de datos originales
+- Copiar Sample - Superstore.csv a data/original/ (dataset crudo)
+- Verificar encoding y delimitador
+
+
+3. Estructura de carpetas y documentación
+- Revisar y mantener:
+  - data/original/
+  - data/staging/
+  - data/processed/
+  - data/warehouse/
+  - src/
+  - src/utils/ (subcarpetas util_extract, util_transform, util_load)
+- Actualizar README.md con pasos y notas
+
+4. Implementación de `src/extract.py` (extract stage)
+- Leer archivo original con pandas
+- Validar columnas mínimas
+- Normalizar encabezados
+- Guardar a data/staging/
+- Añadir manejo de errores
+
+5. Implementación de `src/transform.py` (transform stage)
+- Leer archivo desde data/staging/
+- Limpiar nulos y duplicados
+- Formatear fechas y convertir numéricos
+- Añadir columnas derivadas
+- Guardar a data/processed/
+
+6. Implementación de `src/load.py` (load stage)
+- Leer archivo desde data/processed/
+- Cargar a base de datos destino (SQLite ó Prod)
+- Validar conteos y consistencia
+
+7. Utilidades en `src/utils/`
+- Crear funciones de logging y validación por módulo:
+  - util_extract/read.py
+  - util_transform/clean.py
+  - util_load/write.py
+- Modularizar y reusar desde src/*.py
+
+8. Pruebas y QA
+- Escribir tests en tests/test_etl.py
+- Probar pipeline completo con pytest
+- Añadir casos de errores y datos corruptos
+
+9. Documentación final
+- Actualizar README.md: instrucciones de uso, estructura y comandos
+- Añadir lista de checks de calidad (datos, performance, logs)
+
+10. Mejora y despliegue
+- Automatizar con makefile o script run_pipeline.py
+- Implementar CI simple (GitHub Actions con pytest)
+- Revisar opciones de escalado (Spark, DBT, airflow)

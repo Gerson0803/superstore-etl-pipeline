@@ -1,0 +1,27 @@
+======================================================================
+RESUMEN EJECUCIÓN PIPELINE ETL - SUPERSTORE
+======================================================================
+
+Fecha/Hora inicio: 2026-03-30 13:03:34
+Fecha/Hora fin: 2026-03-30 13:03:36
+Estado: EXITOSO
+
+----------------------------------------------------------------------
+ESTADÍSTICAS DEL PIPELINE
+----------------------------------------------------------------------
+Dataset: Superstore
+Filas extraídas: 9,994
+Filas transformadas: 9,994
+Filas cargadas: 9,994
+Total de columnas: 21
+
+----------------------------------------------------------------------
+ARCHIVOS GENERADOS
+----------------------------------------------------------------------
+  ✓ data/staging/superstore.csv
+  ✓ data/processed/superstore_processed.parquet
+  ✓ data/warehouse/superstore.db (tabla: superstore)
+  ✓ etl_pipeline.log
+  ✓ RESUMEN_PIPELINE.txt
+
+======================================================================
